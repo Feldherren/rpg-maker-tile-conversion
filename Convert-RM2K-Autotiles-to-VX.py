@@ -50,7 +50,14 @@ def convert(infile):
 	converted.paste(im.crop((0,32,8,48)), (0,24,8,40))
 	
 	# single tile
-	converted.paste(im.crop((16,0,32,16)), (0,0,16,16))
+	# upper left
+	converted.paste(im.crop((0,16,8,24)), (0,0,8,8))
+	# lower left
+	converted.paste(im.crop((0,56,8,64)), (0,8,8,16))
+	# upper right
+	converted.paste(im.crop((40,16,48,24)), (8,0,16,8))
+	# lower right
+	converted.paste(im.crop((40,56,48,64)), (8,8,16,16))
 	
 	# Save converted image in PNG format
 	converted.resize((64,96)).save("Converted\\[VX] " + file + ".png", 'PNG')
